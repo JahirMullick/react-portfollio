@@ -8,6 +8,7 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import { Toaster } from "react-hot-toast";
 import { useEffect, useState } from "react";
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -36,6 +37,7 @@ function App() {
       <Contact />
       <Footer />
       <Toaster />
+      <SpeedInsights />
     </>
   ) : (
     <em id="customMessage">Please Change the ratio to View!</em>
