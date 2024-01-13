@@ -25,6 +25,10 @@ function App() {
     };
   }, [ratio]);
 
+  useEffect(() => {
+    document.title = "Jahir's Portfollio"
+  })
+
   return ratio < 2 ? (
     <>
       <HeaderPhone menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
