@@ -3,40 +3,40 @@
         {
             "date": "12/2022 - Present",
             "title": " Junior MERN Stack Developer",
-            "description": "Energetic Computer Science graduate skilled in MERN stack. Proficient in front-end and back-end development, eager to contribute to dynamic projects and further enhance skills.",
+            "description": "Dynamic Computer Science graduate skilled in MERN stack, proficient in front-end and back-end development. Motivated to contribute to projects and enhance skills.",
             "imgSrc": "https://i.ibb.co/8dyQzz2/pexels-cottonbro-studio-7437088.jpg"
         },
         {
             "date": "01/01/2024 - Present",
             "title": "PORTFOLIO",
-            "description": "Passionate Junior React Developer skilled in crafting engaging and responsive user interfaces. Proficient in React and dedicated to delivering visually appealing and functional web applications. Eager to contribute innovative solutions and evolve as a web developer.",
+            "description": "Passionate Junior React Developer skilled in crafting engaging and responsive user interfaces.Eager to contribute innovative solutions and evolve as a web developer.",
             "url": "/",
             "imgSrc": "https://cdn.pixabay.com/photo/2020/03/19/21/25/cactus-4948833_960_720.jpg"
         },
         {
             "date": "07/10/2023",
             "title": "ALBATROSS",
-            "description": "This is the sample description about the project details.",
+            "description": "This is the sample React UI project .",
             "url": "https://vite-mini-project-one.vercel.app/",
             "imgSrc": "https://cdn.pixabay.com/photo/2018/06/07/16/49/virtual-3460451_960_720.jpg"
         },
         {
             "date": "15/10/2023",
             "title": "Tokyo Olympic Project",
-            "description": "This is a data engineering project . The more details the more details and evenually more details because I don't have anything to write",
+            "description": "Passionate about data engineering, I've built a scalable analytics pipeline that converts raw data into valuable insights.For a deeper understanding of my work, please check out my portfolio.",
             "url": "https://github.com/JahirMullick/Tokyo-Olympic-DE-Project",
             "imgSrc": "https://i.ibb.co/5x808Cn/pexels-andy-song-15880800.jpg"
         },
         {
             "date": "17/10/2023",
             "title": "Todo List",
-            "description": "Passionate React developer specializing in sleek, user-centric Todo apps. Proficient in creating engaging UIs and ensuring seamless user interactions. Eager to contribute to cutting-edge projects and amplify productivity through technology.",
+            "description": "Passionate React developer. Proficient in creating engaging UIs and ensuring seamless user interactions. Eager to contribute projects and amplify productivity through technology.",
             "url": "https://vite-project-todo-list.vercel.app/",
             "imgSrc": "https://i.ibb.co/xzp0zfk/pexels-polina-kovaleva-5717413.jpg"
         },
         {
             "date": "03/2022 - 06/2022",
-            "title": "Software Developer Intern at Ovaku LLP",
+            "title": "Software Developer Intern",
             "description": "Computer Science student adept in HTML, CSS, and JavaScript. Hands-on experience in project setup, requirements analysis, and collaborating on development and testing. Eager to contribute and learn.",
             "imgSrc": "https://i.ibb.co/8dyQzz2/pexels-cottonbro-studio-7437088.jpg"
         }
