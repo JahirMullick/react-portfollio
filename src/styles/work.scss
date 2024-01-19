@@ -2,7 +2,8 @@
   width: 100%;
   height: 100vh;
   padding: 8rem $p;
-  > h2 {
+
+  >h2 {
     font: 700 2.5rem $text2;
     width: fit-content;
     border-bottom: 1px solid $color6_1;
@@ -10,7 +11,7 @@
     margin: auto;
   }
 
-  > section {
+  >section {
     margin-top: 4rem;
     width: 100%;
     height: 100%;
@@ -19,7 +20,7 @@
     align-items: center;
     justify-content: center;
 
-    > article {
+    >article {
       width: 70%;
       height: 25vmax;
     }
@@ -34,30 +35,33 @@
       padding: 2rem;
       box-shadow: 0 0 20px 5px $color1;
 
-      > img {
+      >img {
         border-radius: 20px;
         width: 40%;
         object-fit: cover;
       }
 
-      > aside {
+      >aside {
         width: 60%;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
 
-        > p {
-          letter-spacing: 3px;
+        >p {
+          letter-spacing: 1px;
           line-height: 180%;
           margin: 2rem;
+          overflow: auto;
         }
-        > a {
+
+        >a {
           background-color: $color3;
           padding: 0.7rem 2rem;
           margin: 2rem;
           color: $color4;
           transition: all 0.5s;
+
           &:hover {
             background-color: $color3_1;
           }
