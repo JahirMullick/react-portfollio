@@ -3,17 +3,18 @@
   height: 90vh;
   display: flex;
 
-  > section {
+  >section {
     width: 100%;
 
     &:first-of-type {
       padding-left: $p;
 
-      > div {
+      >div {
         border-top: 1px solid $color6_2;
         height: 100%;
         padding-top: 6rem;
-        > h1 {
+
+        >h1 {
           font: 900 4rem $text1;
         }
 
@@ -23,22 +24,25 @@
           letter-spacing: 5px;
         }
 
-        > div {
+        >div {
           display: flex;
           margin: 5rem 0;
           width: 70%;
           gap: 4rem;
           align-items: center;
-          > a {
+
+          >a {
             &:first-of-type {
               background-color: $color3;
               color: $color1;
               padding: 1rem 2.5rem;
               transition: all 0.3s;
+
               &:hover {
                 background-color: $color3_1;
               }
             }
+
             &:last-of-type {
               font: 600 1.2rem $text2;
               color: $color5;
@@ -64,17 +68,23 @@
             content: "";
             background-color: $color4;
             width: 100%;
-            height: 5rem;
             border-radius: 50px;
             position: absolute;
-            top: 20%;
-            left: 20%;
+            height: 5rem;
+            // ! Elements are in middle of the box
+            // top: -1%;
+            // left: -19%;
+            // ! Elements are in half top way
+            top: 29%;
+            left: -9%;
             z-index: -1;
           }
-          > p {
+
+          >p {
             font: 900 2rem $text1;
           }
-          > span {
+
+          >span {
             font: 500 1rem $text2;
           }
         }
@@ -103,7 +113,7 @@
         border-radius: 50%;
       }
 
-      > img {
+      >img {
         width: 40vmax;
         object-fit: contain;
         height: 40vmax;
@@ -111,7 +121,7 @@
     }
   }
 
-  > svg {
+  >svg {
     position: absolute;
     font-size: 4rem;
     color: $color5;
