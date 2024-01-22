@@ -356,6 +356,11 @@
       left: 0%;
     }
 
+    .timelineItem:nth-child(odd),
+    .timelineItem:nth-child(even) {
+      text-align: left;
+    }
+
     .leftTimeline,
     .rightTimeline {
       &::after {
@@ -417,4 +422,23 @@
     }
   }
 
+}
+
+@media (max-height: 844px) and (max-width: 390px) {
+
+  #timeline .timelineItem:nth-child(odd),
+  #timeline .timelineItem:nth-child(even) {
+
+    .timelineContainer {
+      width: 32vmax;
+    }
+  }
+}
+
+// iPad Mini
+@media (max-height: 1024px) and (max-width: 768px) {
+
+  #home>section:last-of-type {
+    justify-content: flex-start;
+  }
 }
