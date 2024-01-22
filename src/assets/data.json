@@ -14,13 +14,6 @@
             "imgSrc": "https://cdn.pixabay.com/photo/2020/03/19/21/25/cactus-4948833_960_720.jpg"
         },
         {
-            "date": "07/10/2023",
-            "title": "ALBATROSS",
-            "description": "This is the sample React UI project .",
-            "url": "https://vite-mini-project-one.vercel.app/",
-            "imgSrc": "https://cdn.pixabay.com/photo/2018/06/07/16/49/virtual-3460451_960_720.jpg"
-        },
-        {
             "date": "15/10/2023",
             "title": "Tokyo Olympic Project",
             "description": "Passionate about data engineering, I've built a scalable analytics pipeline that converts raw data into valuable insights.For a deeper understanding of my work, please check out my portfolio.",
