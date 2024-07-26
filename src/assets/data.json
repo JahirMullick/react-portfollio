@@ -14,11 +14,11 @@
             "imgSrc": "https://cdn.pixabay.com/photo/2020/03/19/21/25/cactus-4948833_960_720.jpg"
         },
         {
-            "date": "15/10/2023",
-            "title": "Tokyo Olympic Project",
-            "description": "Passionate about data engineering, I've built a scalable analytics pipeline that converts raw data into valuable insights.For a deeper understanding of my work, please check out my portfolio.",
-            "url": "https://github.com/JahirMullick/Tokyo-Olympic-DE-Project",
-            "imgSrc": "https://i.ibb.co/5x808Cn/pexels-andy-song-15880800.jpg"
+            "date": "04/03/2024",
+            "title": "Weather App",
+            "description": "Passionate about web development, I've created a dynamic weather app that delivers weather updates and forecasts. For a deeper understanding of my work, please click the button below.",
+            "url": "https://weather-data-app-c.netlify.app/",
+            "imgSrc": "https://i.ibb.co/r0qX6ZG/Capture.png"
         },
         {
             "date": "17/10/2023",
