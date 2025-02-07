@@ -54,7 +54,8 @@ const Home = ({ ratio }) => {
 
           <Typewriter
             options={{
-              strings: ["A Developer", "A Designer", "A ETL Developer"],
+              strings: ["A MERN Stack Developer", "A Designer"],
+              // strings: ["A MERN Stack Developer", "A Designer", "A ETL Developer"],
               autoStart: true,
               loop: true,
               cursor: "",
@@ -63,7 +64,8 @@ const Home = ({ ratio }) => {
           />
 
           <div>
-            <a target="_blank" href="https://drive.google.com/file/d/145TvduAImKi3jQLKj-WFu-Bt-QoOT7of/view?usp=sharing">Resume</a>
+            <a target="_blank" href="https://drive.google.com/file/d/17OPuR-qJRqHTd7FE8Y-6kYuO3NJ33NxY/view?usp=sharing">Resume</a>
+            {/* <a target="_blank" href="https://drive.google.com/file/d/145TvduAImKi3jQLKj-WFu-Bt-QoOT7of/view?usp=sharing">Resume</a> */}
             <a href="#work">
               Projects <BsArrowUpRight />
             </a>
