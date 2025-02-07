@@ -12,7 +12,7 @@ const Footer = () => {
 
         <h2>MD Jahir Mullick</h2>
         <p>Motivation is temporary, but discipline last forever.</p>
-        <h4> Copyright &copy; 2024 Jahir | All Rights Reserve</h4>
+        <h4> Copyright &copy; 2025 Jahir | All Rights Reserve</h4>
       </div>
 
       <aside>
