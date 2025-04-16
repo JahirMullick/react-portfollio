@@ -28,6 +28,13 @@
             "imgSrc": "https://i.ibb.co/r0qX6ZG/Capture.png"
         },
         {
+            "date": "17/10/2023",
+            "title": "Todo List",
+            "description": "Passionate React developer. Proficient in creating engaging UIs and ensuring seamless user interactions. Eager to contribute projects and amplify productivity through technology.",
+            "url": "https://vite-project-todo-list.vercel.app/",
+            "imgSrc": "https://i.ibb.co/xzp0zfk/pexels-polina-kovaleva-5717413.jpg"
+        },
+        {
             "date": "03/2022 - 06/2022",
             "title": "Software Developer Intern",
             "description": "Computer Science student adept in HTML, CSS, and JavaScript. Hands-on experience in project setup, requirements analysis, and collaborating on development and testing. Eager to contribute and learn.",
