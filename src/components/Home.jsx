@@ -64,7 +64,7 @@ const Home = ({ ratio }) => {
           />
 
           <div>
-            <a target="_blank" href="https://drive.google.com/file/d/1DtpERPpHVkKhSrCFO4CxL3vmcW0q9uKn/view?usp=sharing">Resume</a>
+            <a target="_blank" href="https://drive.google.com/file/d/1wwlAeBoUYRfaKNBydoru3YVMvAY8M1HH/view?usp=sharing">Resume</a>
             {/* <a target="_blank" href="https://drive.google.com/file/d/16SCVYo7m2h-5fQn4b0DDlNzfsOCYschN/view?usp=sharing">Resume</a> */}
             <a href="#work">
               Projects <BsArrowUpRight />
