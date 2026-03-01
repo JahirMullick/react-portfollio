@@ -1,93 +1,303 @@
 #contact {
-  min-height: 90vh;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  padding: 6rem 6%;
+  position: relative;
+  background: $bg-primary;
 
-  >section {
-    background-color: $color1;
-    width: 100%;
-    height: 100%;
+  &::before {
+    content: "";
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(108, 99, 255, 0.06) 0%, transparent 70%);
+    top: 10%;
+    left: -100px;
+    z-index: 0;
+    pointer-events: none;
+  }
 
-    >form {
+  .contactContent {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  // Left column - Info cards with hover glow
+  .contactInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+
+    // ===== INFO CARDS - Lift + glow on hover =====
+    .infoCard {
       display: flex;
-      flex-direction: column;
       align-items: center;
-      justify-content: center;
-      height: 100%;
+      gap: 1.2rem;
+      padding: 1.3rem 1.5rem;
+      background: $bg-glass;
+      backdrop-filter: blur(10px);
+      border: 1px solid $border-subtle;
+      border-radius: $radius-lg;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: default;
 
-      >h2 {
-        text-align: center;
-        font: 100 2.7rem $text2;
-        letter-spacing: 5px;
-        text-transform: uppercase;
-        margin: 2rem;
-      }
+      &:hover {
+        border-color: $accent-primary;
+        box-shadow: 0 0 25px rgba(108, 99, 255, 0.15),
+          0 8px 25px rgba(0, 0, 0, 0.3);
+        transform: translateY(-4px);
+        background: rgba(108, 99, 255, 0.06);
 
-      >input,
-      >textarea,
-      >button {
-        padding: 0.8rem;
-        width: 40%;
-        outline: none;
-        font: 400 0.9rem $text1;
-        margin: 1rem;
-        border: none;
-      }
-
-      >button {
-        cursor: pointer;
-        background-color: $color3;
-        color: $color4;
-        font: 600 1rem $text1;
-        text-transform: uppercase;
-        margin: 3rem;
-
-        &:hover {
-          background-color: $color3_1;
+        .infoIcon {
+          box-shadow: 0 0 15px rgba(108, 99, 255, 0.3);
+          transform: scale(1.1);
         }
       }
 
-      >span {
-        background-color: rgb(204, 204, 204);
-        height: 2px;
-        width: 50%;
+      .infoIcon {
+        width: 48px;
+        height: 48px;
+        background: $accent-gradient-subtle;
+        border-radius: $radius-md;
+        display: grid;
+        place-items: center;
+        flex-shrink: 0;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+        svg {
+          font-size: 1.3rem;
+          color: $accent-primary;
+        }
       }
 
-      // .wpdiv {
-      //   opacity: 1;
-      //   transform: translateY(0%) translateZ(0px);
-      // }
+      h4 {
+        font: 600 1rem $text2;
+        color: $text-primary;
+        margin-bottom: 0.2rem;
+      }
 
-      // .wpbutton {
-      //   position: relative;
-      //   left: -10px;
-      //   // background-color: #8ae112;
-      //   color: #fff;
-      //   font: 600 25px "Roboto", sans-serif;
-      // }
+      p {
+        font: 400 0.85rem $text2;
+        color: $text-muted;
+      }
+    }
 
-      // .wptext {
-      //   position: relative;
-      //   font-size: 12px;
-      //   top: -7px;
-      // }
+    // ===== SOCIAL ICONS - Colored glow matching platform =====
+    .connectSection {
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid $border-subtle;
+
+      >p {
+        font: 400 0.85rem $text2;
+        color: $text-muted;
+        margin-bottom: 1rem;
+      }
+
+      .socialIcons {
+        display: flex;
+        gap: 0.8rem;
+
+        a {
+          width: 44px;
+          height: 44px;
+          display: grid;
+          place-items: center;
+          background: $bg-glass;
+          border: 1px solid $border-subtle;
+          border-radius: $radius-md;
+          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+          svg {
+            font-size: 1.3rem;
+            color: $text-secondary;
+            transition: all 0.3s ease;
+          }
+
+          // GitHub hover - gray/white
+          &:nth-child(1):hover {
+            border-color: #ffffff;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+            transform: translateY(-4px) scale(1.1);
+
+            svg {
+              color: #ffffff;
+              transform: scale(1.1);
+            }
+          }
+
+          // LinkedIn hover - blue
+          &:nth-child(2):hover {
+            border-color: #0077b5;
+            box-shadow: 0 0 20px rgba(0, 119, 181, 0.3);
+            transform: translateY(-4px) scale(1.1);
+
+            svg {
+              color: #0077b5;
+              transform: scale(1.1);
+            }
+          }
+
+          // Email hover - purple
+          &:nth-child(3):hover {
+            border-color: $accent-primary;
+            box-shadow: 0 0 20px rgba(108, 99, 255, 0.3);
+            transform: translateY(-4px) scale(1.1);
+
+            svg {
+              color: $accent-primary;
+              transform: scale(1.1);
+            }
+          }
+        }
+      }
     }
   }
 
-  >aside {
-    width: 100%;
-    height: 100%;
-    background-color: $color5;
-    display: grid;
-    place-items: center;
+  // Right column - Form card
+  .contactFormCard {
+    background: $bg-glass;
+    backdrop-filter: blur(10px);
+    border: 1px solid $border-accent;
+    border-radius: $radius-xl;
+    padding: 2.5rem;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 
-    img {
-      width: 70%;
-      height: 70%;
-      object-fit: contain;
-      // filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.322)) hue-rotate(150deg);
-      filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.322));
-      animation: upupdowndown 0.7s infinite linear alternate;
+    &:hover {
+      border-color: $accent-primary;
+      box-shadow: 0 0 35px rgba(108, 99, 255, 0.1);
+    }
+
+    h3 {
+      font: 700 1.5rem $text1;
+      background: $accent-gradient;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.3rem;
+    }
+
+    .formSubtext {
+      font: 400 0.85rem $text2;
+      color: $text-muted;
+      margin-bottom: 2rem;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      // ===== FORM INPUTS - Border brightens on focus with glow =====
+      input,
+      textarea {
+        padding: 1rem 1.2rem;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid $border-subtle;
+        border-radius: $radius-md;
+        color: $text-primary;
+        font: 400 0.9rem $text2;
+        outline: none;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+        &::placeholder {
+          color: $text-muted;
+          transition: all 0.3s ease;
+        }
+
+        &:hover {
+          border-color: $border-accent;
+          background: rgba(255, 255, 255, 0.04);
+        }
+
+        &:focus {
+          border-color: $accent-primary;
+          box-shadow: 0 0 20px rgba(108, 99, 255, 0.15),
+            inset 0 0 15px rgba(108, 99, 255, 0.03);
+          background: rgba(255, 255, 255, 0.06);
+
+          &::placeholder {
+            color: transparent;
+            transform: translateY(-10px);
+          }
+        }
+      }
+
+      textarea {
+        min-height: 130px;
+        resize: vertical;
+      }
+
+      // ===== SUBMIT BUTTON - Scale + glow + shimmer =====
+      button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.6rem;
+        width: 100%;
+        padding: 1rem;
+        background: $accent-gradient;
+        color: $text-primary;
+        font: 700 1rem $text2;
+        letter-spacing: 1px;
+        border: none;
+        border-radius: $radius-full;
+        cursor: pointer;
+        margin-top: 0.5rem;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 4px 25px rgba(108, 99, 255, 0.3);
+        position: relative;
+        overflow: hidden;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(120deg,
+              transparent,
+              rgba(255, 255, 255, 0.2),
+              transparent);
+          transition: left 0.6s ease;
+        }
+
+        svg {
+          font-size: 1rem;
+          transition: transform 0.3s ease;
+        }
+
+        &:hover {
+          transform: translateY(-3px) scale(1.02);
+          box-shadow: 0 10px 40px rgba(108, 99, 255, 0.5);
+
+          &::before {
+            left: 100%;
+          }
+
+          svg {
+            transform: translateX(4px) rotate(15deg);
+          }
+        }
+
+        &:active {
+          transform: translateY(-1px) scale(1.01);
+        }
+      }
+
+      .disableBtn {
+        opacity: 0.6;
+        cursor: not-allowed;
+
+        &:hover {
+          transform: none;
+          box-shadow: 0 4px 25px rgba(108, 99, 255, 0.3);
+        }
+      }
     }
   }
 }

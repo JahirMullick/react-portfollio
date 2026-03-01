@@ -1,133 +1,436 @@
 #home {
   width: 100%;
-  height: 90vh;
+  min-height: 100vh;
   display: flex;
+  position: relative;
+  overflow: hidden;
+  padding: 2rem 6% 4rem;
+  align-items: center;
+
+  // Background ambient glows
+  &::before {
+    content: "";
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(108, 99, 255, 0.12) 0%, transparent 70%);
+    top: -200px;
+    left: -200px;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(248, 87, 166, 0.08) 0%, transparent 70%);
+    bottom: -100px;
+    right: 10%;
+    z-index: 0;
+    pointer-events: none;
+  }
 
   >section {
-    width: 100%;
+    width: 50%;
+    position: relative;
+    z-index: 1;
 
     &:first-of-type {
-      padding-left: $p;
+      display: flex;
+      align-items: flex-start;
 
       >div {
-        border-top: 1px solid $color6_2;
-        height: 100%;
-        padding-top: 6rem;
+        width: 100%;
+
+        .greeting {
+          display: inline-block;
+          font: 500 1rem $text2;
+          color: $accent-primary;
+          margin-bottom: 1rem;
+          letter-spacing: 0.5px;
+        }
 
         >h1 {
-          font: 900 4rem $text1;
+          font: 800 4.5rem $text1;
+          line-height: 1.1;
+          letter-spacing: -2px;
+          margin-bottom: 0.5rem;
+          background: $accent-gradient;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
+
+        .typewriterWrap {
+          margin: 0.8rem 0 1.5rem;
         }
 
         .typewriterpara {
-          margin: 20px 0;
-          height: 20px;
-          letter-spacing: 5px;
+          height: 24px;
+          letter-spacing: 3px;
+          font-size: 0.9rem;
+          color: $text-muted;
+          font-weight: 500;
+          text-transform: uppercase;
         }
 
-        >div {
+        .heroDescription {
+          font: 400 1rem $text2;
+          color: $text-secondary;
+          line-height: 1.7;
+          max-width: 500px;
+          margin-bottom: 2rem;
+        }
+
+        // ===== CTA BUTTONS - Enhanced hover with scale + glow =====
+        .heroCtas {
           display: flex;
-          margin: 5rem 0;
-          width: 70%;
-          gap: 4rem;
-          align-items: center;
+          gap: 1rem;
+          margin-bottom: 1rem;
+          flex-wrap: wrap;
 
-          >a {
-            &:first-of-type {
-              background-color: $color3;
-              color: $color1;
-              padding: 1rem 2.5rem;
-              transition: all 0.3s;
+          .ctaPrimary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: $accent-gradient;
+            color: $text-primary;
+            padding: 0.85rem 2rem;
+            border-radius: $radius-full;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 25px rgba(108, 99, 255, 0.35);
+            position: relative;
+            overflow: hidden;
 
-              &:hover {
-                background-color: $color3_1;
+            // Shimmer overlay on hover
+            &::before {
+              content: "";
+              position: absolute;
+              top: 0;
+              left: -100%;
+              width: 100%;
+              height: 100%;
+              background: linear-gradient(120deg,
+                  transparent,
+                  rgba(255, 255, 255, 0.15),
+                  transparent);
+              transition: left 0.6s ease;
+            }
+
+            &:hover {
+              transform: translateY(-3px) scale(1.05);
+              box-shadow: 0 10px 40px rgba(108, 99, 255, 0.55);
+
+              &::before {
+                left: 100%;
+              }
+
+              svg {
+                transform: translateX(4px);
               }
             }
 
-            &:last-of-type {
-              font: 600 1.2rem $text2;
-              color: $color5;
-              display: flex;
-              align-items: center;
+            &:active {
+              transform: translateY(-1px) scale(1.02);
+            }
+
+            svg {
+              font-size: 1rem;
+              transition: transform 0.3s ease;
+            }
+          }
+
+          .ctaOutline {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: $accent-primary;
+            padding: 0.85rem 2rem;
+            border-radius: $radius-full;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            border: 1px solid $border-accent;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+
+            &::before {
+              content: "";
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background: $accent-gradient;
+              opacity: 0;
+              transition: opacity 0.4s ease;
+              z-index: -1;
+            }
+
+            &:hover {
+              color: $text-primary;
+              border-color: transparent;
+              transform: translateY(-3px) scale(1.05);
+              box-shadow: 0 10px 35px rgba(108, 99, 255, 0.4);
+
+              &::before {
+                opacity: 1;
+              }
+
+              svg {
+                transform: rotate(15deg);
+              }
+            }
+
+            &:active {
+              transform: translateY(-1px) scale(1.02);
+            }
+
+            svg {
+              font-size: 0.9rem;
+              transition: transform 0.3s ease;
             }
           }
         }
 
-        aside {
+        .ctaResume {
+          margin-bottom: 2.5rem;
+
+          a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: $accent-primary;
+            padding: 0.7rem 1.8rem;
+            border-radius: $radius-full;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            border: 1px solid $border-accent;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+            &:hover {
+              background: rgba(108, 99, 255, 0.12);
+              border-color: $accent-primary;
+              transform: translateY(-2px);
+              box-shadow: 0 8px 25px rgba(108, 99, 255, 0.2);
+            }
+          }
+        }
+
+        // ===== STATS CARDS - Lift + Border Glow =====
+        .heroStats {
           display: flex;
-          justify-content: space-between;
-          width: 70%;
-        }
+          gap: 1rem;
 
-        article {
-          margin: 2rem 0;
-          width: 10rem;
-          color: $color5;
-          position: relative;
+          article {
+            padding: 1.2rem 1.5rem;
+            background: $bg-glass;
+            backdrop-filter: blur(10px);
+            border: 1px solid $border-accent;
+            border-radius: $radius-lg;
+            min-width: 110px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: default;
 
-          &::after {
-            content: "";
-            background-color: $color4;
-            width: 100%;
-            border-radius: 50px;
-            position: absolute;
-            height: 5rem;
-            // ! Elements are in middle of the box
-            // top: -1%;
-            // left: -19%;
-            // ! Elements are in half top way
-            top: 29%;
-            left: -9%;
-            z-index: -1;
+            &:hover {
+              border-color: $accent-primary;
+              box-shadow: 0 0 25px rgba(108, 99, 255, 0.25),
+                0 8px 30px rgba(0, 0, 0, 0.3);
+              transform: translateY(-5px);
+              background: rgba(108, 99, 255, 0.08);
+            }
+
+            p {
+              font: 800 1.8rem $text1;
+              background: $accent-gradient;
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+              background-clip: text;
+              margin-bottom: 0.3rem;
+            }
+
+            span {
+              font: 500 0.75rem $text2;
+              color: $text-muted;
+              text-transform: uppercase;
+              letter-spacing: 1.5px;
+            }
+
+            .contactLink {
+              font-size: 1.5rem;
+              -webkit-text-fill-color: initial;
+              text-decoration: none;
+            }
           }
-
-          >p {
-            font: 900 2rem $text1;
-          }
-
-          >span {
-            font: 500 1rem $text2;
-          }
-        }
-
-        article[data-special] {
-          width: 16rem;
         }
       }
     }
 
+    // Right side - profile image
     &:last-of-type {
-      border-top: 1px solid $color6_2;
       display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
+      justify-content: center;
       align-items: center;
-      overflow-x: hidden;
 
-      &::after {
-        content: "";
-        width: 40vmax;
-        height: 40vmax;
-        background-color: $color3;
-        position: absolute;
-        z-index: -1;
-        border-radius: 50%;
-      }
+      .profileImageContainer {
+        position: relative;
+        width: 420px;
+        height: 420px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
-      >img {
-        width: 40vmax;
-        object-fit: contain;
-        height: 40vmax;
+        .profileImageGlow {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          background: conic-gradient(from 0deg,
+              $accent-primary,
+              $accent-secondary,
+              $accent-tertiary,
+              $accent-primary );
+          padding: 3px;
+          animation: rotate-slow 8s linear infinite;
+          opacity: 0.7;
+
+          &::after {
+            content: "";
+            position: absolute;
+            inset: 3px;
+            border-radius: 50%;
+            background: $bg-primary;
+          }
+        }
+
+        >img {
+          width: 380px;
+          height: 380px;
+          object-fit: cover;
+          border-radius: 50%;
+          position: relative;
+          z-index: 2;
+          transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+          filter: drop-shadow(0 0 30px rgba(108, 99, 255, 0.15));
+
+          &:hover {
+            transform: scale(1.04);
+            filter: drop-shadow(0 0 45px rgba(108, 99, 255, 0.3));
+          }
+        }
+
+        // ===== FLOATING ICONS - Enhanced with hover glow =====
+        .floatingIcon {
+          position: absolute;
+          width: 48px;
+          height: 48px;
+          background: $bg-card;
+          border: 1px solid $border-subtle;
+          border-radius: $radius-md;
+          display: grid;
+          place-items: center;
+          z-index: 3;
+          box-shadow: $shadow-card;
+          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+          cursor: default;
+
+          svg {
+            font-size: 1.3rem;
+            color: $accent-primary;
+            transition: transform 0.3s ease;
+          }
+
+          &:hover {
+            transform: scale(1.2) !important;
+            border-color: var(--icon-glow-color, $accent-primary);
+            box-shadow: 0 0 20px var(--icon-glow-shadow, rgba(108, 99, 255, 0.4));
+
+            svg {
+              transform: scale(1.1);
+            }
+          }
+        }
+
+        .floatingIcon1 {
+          top: 10%;
+          right: 0;
+          animation: float 4s ease-in-out infinite;
+          --icon-glow-color: #61dafb;
+          --icon-glow-shadow: rgba(97, 218, 251, 0.4);
+
+          svg {
+            color: #61dafb;
+          }
+        }
+
+        .floatingIcon2 {
+          bottom: 15%;
+          left: -5%;
+          animation: float 5s ease-in-out infinite 0.5s;
+          --icon-glow-color: #68a063;
+          --icon-glow-shadow: rgba(104, 160, 99, 0.4);
+
+          svg {
+            color: #68a063;
+          }
+        }
+
+        .floatingIcon3 {
+          top: 50%;
+          right: -8%;
+          animation: float 4.5s ease-in-out infinite 1s;
+          --icon-glow-color: $accent-secondary;
+          --icon-glow-shadow: rgba(248, 87, 166, 0.4);
+
+          svg {
+            color: $accent-secondary;
+          }
+        }
       }
     }
   }
 
-  >svg {
+  // Scroll indicator
+  .scrollIndicator {
     position: absolute;
-    font-size: 4rem;
-    color: $color5;
+    bottom: 3%;
     left: 50%;
-    bottom: 5%;
     transform: translateX(-50%);
-    animation: animateSvg 0.7s infinite linear alternate;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    z-index: 2;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateX(-50%) translateY(-3px);
+
+      svg {
+        color: $accent-secondary;
+      }
+    }
+
+    span {
+      font: 400 0.75rem $text2;
+      color: $text-muted;
+      letter-spacing: 1px;
+    }
+
+    svg {
+      font-size: 1.2rem;
+      color: $accent-primary;
+      animation: animateSvg 0.7s infinite linear alternate;
+      transition: color 0.3s ease;
+    }
   }
 }

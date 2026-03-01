@@ -1,72 +1,101 @@
 nav {
   width: 100%;
-  height: 100px;
-  background-color: $color1;
+  height: 70px;
+  background: rgba(10, 10, 15, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0 $p;
+  justify-content: flex-end;
+  padding: 0 6%;
   position: sticky;
-  top: 0%;
+  top: 0;
   z-index: 60;
-  > h2 {
-    font-size: 2rem;
+  border-bottom: 1px solid $border-subtle;
+  transition: $transition-smooth;
+
+  >h2 {
+    display: none;
   }
-  > div {
+
+  >div {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 2.5rem;
+
     a {
-      color: $color6;
+      color: $text-secondary;
       font-weight: 500;
-      transition: all 0.3s;
-      letter-spacing: 1px;
+      font-size: 0.9rem;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      letter-spacing: 0.5px;
+      position: relative;
+      padding: 0.3rem 0;
+
+      // Animated gradient underline on hover
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 50%;
+        width: 0%;
+        height: 2px;
+        background: $accent-gradient;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        border-radius: $radius-full;
+        transform: translateX(-50%);
+      }
+
       &:hover {
-        color: $color3;
+        color: $accent-primary;
+        text-shadow: 0 0 15px rgba(108, 99, 255, 0.3);
+
+        &::after {
+          width: 100%;
+        }
       }
     }
   }
 
-  > a > button {
-    border: 1px solid $color6_1;
-    padding: 0.5rem 2rem;
-    background-color: $color1;
-    cursor: pointer;
-    color: $color6;
-    letter-spacing: 1px;
-    font-weight: 500;
-    transition: all 0.3s;
-    &:hover {
-      background-color: $color6;
-      color: $color4;
-    }
+  >a>button {
+    display: none;
   }
 }
 
 .navBtn {
-  width: 40px;
-  height: 40px;
-  border: none;
-  background-color: transparent;
-  color: $color5;
-  font-size: 1.4rem;
+  width: 44px;
+  height: 44px;
+  border: 1px solid $border-light;
+  background: $bg-glass;
+  backdrop-filter: blur(10px);
+  color: $text-primary;
+  font-size: 1.2rem;
   z-index: 150;
   position: fixed;
-  top: 2rem;
-  right: 2rem;
+  top: 1rem;
+  right: 1.5rem;
   display: none;
+  border-radius: $radius-md;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
-    color: $color3;
+    background: $bg-glass-hover;
+    border-color: $accent-primary;
+    color: $accent-primary;
+    box-shadow: 0 0 15px rgba(108, 99, 255, 0.2);
+    transform: scale(1.08);
   }
 }
 
 .navPhone {
-  transition: all 0.5s;
+  transition: $transition-slow;
   transform: translateY(-200%);
   width: 100%;
   height: 100vh;
-  background-color: $color5;
+  background: rgba(10, 10, 15, 0.98);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
   padding: $p_base;
   position: fixed;
   top: 0;
@@ -75,42 +104,67 @@ nav {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 3rem;
+  gap: 2.5rem;
 
-  > h2 {
-    font-size: 2rem;
-    color: $color4;
+  >h2 {
+    font: 700 2rem $text1;
+    background: $accent-gradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
-  > div {
+  >div {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2rem;
+    gap: 1.8rem;
 
     a {
-      color: $color4;
+      color: $text-secondary;
       letter-spacing: 1px;
       font-weight: 500;
-      transition: all 0.3s;
+      font-size: 1.1rem;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 50%;
+        width: 0%;
+        height: 2px;
+        background: $accent-gradient;
+        transition: all 0.4s ease;
+        transform: translateX(-50%);
+      }
+
       &:hover {
-        color: $color3;
+        color: $accent-primary;
+        text-shadow: 0 0 15px rgba(108, 99, 255, 0.3);
+
+        &::after {
+          width: 100%;
+        }
       }
     }
   }
 
-  > a > button {
-    border: 1px solid $color6_1;
-    padding: 0.5rem 2rem;
-    background-color: $color1;
+  >a>button {
+    border: 1px solid $border-accent;
+    padding: 0.6rem 2rem;
+    background: $accent-gradient;
     cursor: pointer;
-    color: $color6;
+    color: $text-primary;
     letter-spacing: 1px;
-    font-weight: 500;
-    transition: 0.5s;
+    font-weight: 600;
+    border-radius: $radius-full;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
     &:hover {
-      background-color: $color6;
-      color: $color4;
+      box-shadow: 0 8px 30px rgba(108, 99, 255, 0.5);
+      transform: translateY(-3px) scale(1.05);
     }
   }
 }

@@ -1,37 +1,80 @@
 {
     "projects": [
         {
-            "date": "12/2022 - Present",
-            "title": " MERN Stack Developer",
+            "date": "05/2025 - Present",
+            "title": "Software Developer",
+            "description": "Building high-quality, scalable web applications using modern technologies. Contributing to full-stack development with a focus on clean code and innovative solutions.",
+            "imgSrc": "https://i.ibb.co/8dyQzz2/pexels-cottonbro-studio-7437088.jpg",
+            "tags": [
+                "React",
+                "Node.js",
+                "MongoDB"
+            ],
+            "type": "experience"
+        },
+        {
+            "date": "12/2022 - 04/2025",
+            "title": "Jr Software Developer",
             "description": "Dynamic Computer Science graduate skilled in MERN stack, proficient in front-end and back-end development. Motivated to contribute to projects and enhance skills.",
-            "imgSrc": "https://i.ibb.co/8dyQzz2/pexels-cottonbro-studio-7437088.jpg"
+            "imgSrc": "https://i.ibb.co/8dyQzz2/pexels-cottonbro-studio-7437088.jpg",
+            "tags": [
+                "React",
+                "Node.js",
+                "MongoDB"
+            ],
+            "type": "experience"
         },
         {
             "date": "01/01/2024 - Present",
-            "title": "PORTFOLIO",
-            "description": "Passionate Junior React Developer skilled in crafting engaging and responsive user interfaces.Eager to contribute innovative solutions and evolve as a web developer.",
+            "title": "Portfolio",
+            "description": "A modern portfolio website built with React, Framer Motion, and SCSS, featuring glassmorphic design and smooth animations.",
             "url": "/",
-            "imgSrc": "https://cdn.pixabay.com/photo/2020/03/19/21/25/cactus-4948833_960_720.jpg"
+            "imgSrc": "https://cdn.pixabay.com/photo/2020/03/19/21/25/cactus-4948833_960_720.jpg",
+            "tags": [
+                "React",
+                "SCSS",
+                "Framer Motion"
+            ],
+            "type": "project"
         },
         {
             "date": "Ongoing",
             "title": "Real Estate",
-            "description": "Developed a real estate web platform using React.js, Node.js, Express, and MongoDB, enabling users to list, search, and save properties with features like map-based search using Leaflet, real-time chat, and secure authentication with JWT.",
+            "description": "A full-stack real estate web platform enabling users to list, search, and save properties with map-based search, real-time chat, and JWT authentication.",
             "url": "https://github.com/JahirMullick/Real-Estate",
-            "imgSrc": "https://i.ibb.co/DPRFcxdR/real-estate-6688945-1280.jpg"
+            "imgSrc": "https://i.ibb.co/DPRFcxdR/real-estate-6688945-1280.jpg",
+            "tags": [
+                "React",
+                "Node.js",
+                "Express",
+                "MongoDB"
+            ],
+            "type": "project"
         },
         {
             "date": "04/03/2024",
             "title": "Weather App",
-            "description": "Passionate about web development, I've created a dynamic weather app that delivers weather updates and forecasts. For a deeper understanding of my work, please click the button below.",
+            "description": "A dynamic weather application delivering real-time weather updates, forecasts, and location-based data using external APIs.",
             "url": "https://weather-data-app-c.netlify.app/",
-            "imgSrc": "https://i.ibb.co/r0qX6ZG/Capture.png"
+            "imgSrc": "https://i.ibb.co/r0qX6ZG/Capture.png",
+            "tags": [
+                "React",
+                "API",
+                "CSS"
+            ],
+            "type": "project"
         },
         {
             "date": "03/2022 - 06/2022",
             "title": "Software Developer Intern",
-            "description": "Computer Science student adept in HTML, CSS, and JavaScript. Hands-on experience in project setup, requirements analysis, and collaborating on development and testing. Eager to contribute and learn.",
-            "imgSrc": "https://i.ibb.co/8dyQzz2/pexels-cottonbro-studio-7437088.jpg"
+            "description": "Hands-on experience in project setup, requirements analysis, and collaborating on development and testing using HTML, CSS, and JavaScript.",
+            "imgSrc": "https://i.ibb.co/8dyQzz2/pexels-cottonbro-studio-7437088.jpg",
+            "tags": [
+                "HTML",
+                "CSS",
+                "JavaScript"
+            ],
+            "type": "experience"
         }
     ]
 }

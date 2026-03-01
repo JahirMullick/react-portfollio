@@ -1,64 +1,158 @@
 #services {
   width: 100%;
-  height: 100vh;
-  padding: $p;
-  background-color: $color5;
-  color: $color4;
+  min-height: 100vh;
+  padding: 6rem 6%;
+  background-color: $bg-secondary;
+  color: $text-primary;
   overflow: hidden;
-  > h2 {
-    font: 700 2.5rem $text2;
-    width: fit-content;
-    border-bottom: 1px solid $color4;
-    padding: 0.5rem;
-    margin: auto;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(108, 99, 255, 0.06) 0%, transparent 70%);
+    bottom: -200px;
+    left: -100px;
+    z-index: 0;
+    pointer-events: none;
   }
 
-  > section {
+  // ===== SKILLS GRID - Brand-colored border glow on hover =====
+  .skillsGrid {
     display: grid;
-    margin: 3rem;
-    grid-template-columns: repeat(3, 1fr);
-    height: 100%;
-    gap: 2rem;
-    > * {
-      width: 100%;
-      height: 100%;
-      background-color: $color4;
-      color: $color6;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.2rem;
+    max-width: 900px;
+    margin: 0 auto 4rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .skillCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.8rem 1.2rem;
+    background: $bg-glass;
+    backdrop-filter: blur(10px);
+    border: 1px solid $border-subtle;
+    border-radius: $radius-lg;
+    cursor: default;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    gap: 0.8rem;
+    position: relative;
+
+    // ===== THE KEY EFFECT: Brand-colored border glow =====
+    &:hover {
+      border-color: var(--skill-color, $accent-primary);
+      box-shadow: 0 0 25px var(--skill-glow, rgba(108, 99, 255, 0.3)),
+        0 0 50px var(--skill-glow, rgba(108, 99, 255, 0.1));
+      transform: translateY(-6px);
+      background: rgba(255, 255, 255, 0.06);
+
+      .skillIcon {
+        transform: scale(1.15);
+      }
+
+      .skillName {
+        color: $text-primary;
+      }
+    }
+
+    .skillIcon {
+      font-size: 2.2rem;
+      color: var(--skill-color, $accent-primary);
       display: flex;
-      flex-direction: column;
-      transition: all 0.3s;
       align-items: center;
       justify-content: center;
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .skillName {
+      font: 500 0.85rem $text2;
+      color: $text-secondary;
+      letter-spacing: 0.5px;
+      transition: color 0.3s ease;
+    }
+  }
+
+  // ===== EXPERIENCE ROW - Lift + glow =====
+  .experienceRow {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.2rem;
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+
+    .expCard {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.5rem;
+      background: $bg-glass;
+      backdrop-filter: blur(10px);
+      border: 1px solid $border-accent;
+      border-radius: $radius-lg;
+      cursor: default;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      text-align: center;
+
       &:hover {
-        box-shadow: 0 0 5px 15px $color1;
+        border-color: $accent-primary;
+        box-shadow: 0 0 30px rgba(108, 99, 255, 0.2),
+          0 8px 30px rgba(0, 0, 0, 0.3);
+        transform: translateY(-6px);
+        background: rgba(108, 99, 255, 0.06);
+
+        svg {
+          transform: scale(1.15);
+        }
       }
 
-      > svg {
-        color: $color5;
-        font-size: 3rem;
-      }
-      > span {
-        font: 700 1rem $text2;
-        letter-spacing: 3px;
-        margin: 1rem;
-      }
-    }
+      &:first-child {
+        background: $accent-gradient-subtle;
 
-    .serviceBox1 {
-      grid-column: 1 / 2;
-      grid-row: 1/3;
-      background-color: $color1;
+        &:hover {
+          background: linear-gradient(135deg, rgba(108, 99, 255, 0.25), rgba(248, 87, 166, 0.2));
+          box-shadow: 0 0 35px rgba(108, 99, 255, 0.3);
+        }
+      }
 
-      > h3 {
-        font: 100 5rem $text1;
+      h3 {
+        font: 800 2.5rem $text1;
+        background: $accent-gradient;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
       }
-      > p {
-        font: 700 1.2rem $text2;
-        letter-spacing: 3px;
+
+      p {
+        font: 600 0.85rem $text2;
+        color: $text-secondary;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        margin-top: 0.3rem;
       }
-    }
-    .serviceBox4 {
-      grid-column: 2/4;
+
+      svg {
+        font-size: 2rem;
+        color: $accent-primary;
+        margin-bottom: 0.5rem;
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      span {
+        font: 600 0.8rem $text2;
+        color: $text-secondary;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+      }
     }
   }
 }

@@ -1,140 +1,18 @@
-// import React, { useState } from "react";
-// import vg from "../assets/vg.png";
-// import toast from "react-hot-toast";
-// import { motion } from "framer-motion";
-// import { addDoc, collection } from "firebase/firestore";
-// import { db } from "../firebase";
-// // import { FaWhatsapp } from "react-icons/fa";
-
-
-// const Contact = () => {
-//   const [name, setName] = useState("");
-//   const [email, setEmail] = useState("");
-//   const [message, setMessage] = useState("");
-//   const [disableBtn, setDisableBtn] = useState(false);
-
-//   const submitHandler = async (e) => {
-//     e.preventDefault();
-//     setDisableBtn(true);
-//     try {
-//       await addDoc(collection(db, "contacts"), {
-//         name,
-//         email,
-//         message,
-//       });
-//       setName("");
-//       setEmail("");
-//       setMessage("");
-//       toast.success("Message Sent");
-//       setDisableBtn(false);
-//     } catch (error) {
-//       toast.error("Error");
-//       console.log(error);
-//       setDisableBtn(false);
-//     }
-//   };
-
-//   const animations = {
-//     form: {
-//       initial: {
-//         x: "-100%",
-//         opacity: 0,
-//       },
-//       whileInView: {
-//         x: 0,
-//         opacity: 1,
-//       },
-//     },
-
-//     button: {
-//       initial: {
-//         y: "-100%",
-//         opacity: 0,
-//       },
-//       whileInView: {
-//         y: 0,
-//         opacity: 1,
-//       },
-//       transition: {
-//         delay: 0.5,
-//       },
-//     },
-//   };
-//   return (
-//     <div id="contact">
-//       <section>
-//         <motion.form onSubmit={submitHandler} {...animations.form}>
-//           <h2>Contact Me</h2>
-//           <input
-//             type="text"
-//             value={name}
-//             onChange={(e) => setName(e.target.value)}
-//             placeholder="Your Name"
-//             required
-//           />
-//           <input
-//             type="email"
-//             placeholder="Your Email"
-//             required
-//             value={email}
-//             onChange={(e) => setEmail(e.target.value)}
-//           />
-//           <input
-//             type="text"
-//             placeholder="Your Message"
-//             required
-//             value={message}
-//             onChange={(e) => setMessage(e.target.value)}
-//           />
-
-//           <motion.button
-//             disabled={disableBtn}
-//             className={disableBtn ? "disableBtn" : ""}
-//             {...animations.button}
-//             type="submit"
-//           >
-//             Send
-//           </motion.button>
-//           {/* <span></span>
-//           <motion.button
-//             className="wpdiv">
-//             <a target="_blank" href="https://wa.me/9609547215" />
-//             <FaWhatsapp className="wpbutton" />
-//             <span className="wptext">Connect with Whatsapp</span>
-//           </motion.button> */}
-//         </motion.form>
-//       </section>
-//       <aside>
-//         <img src={vg} alt="Graphics" />
-//       </aside>
-//     </div>
-//   );
-// };
-
-// export default Contact;
-
-
-
-
-
-
-
-
-
-
-
-// V2  
-
 import React, { useState } from "react";
 import { useForm, ValidationError } from "@formspree/react";
 import { motion } from "framer-motion";
 import { addDoc, collection } from "firebase/firestore";
-import { db } from "../firebase"; // Import Firebase database
-import vg from "../assets/vg.png";
+import { db } from "../firebase";
 import toast from "react-hot-toast";
+import {
+  AiFillGithub,
+  AiFillLinkedin,
+  AiOutlineMail,
+} from "react-icons/ai";
+import { BsSend, BsGeoAlt, BsEnvelope } from "react-icons/bs";
 
 const Contact = () => {
-  const [state, handleSubmit] = useForm("mrbellpr"); // Formspree Form ID
+  const [state, handleSubmit] = useForm("mrbellpr");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -144,20 +22,18 @@ const Contact = () => {
     e.preventDefault();
     setDisableBtn(true);
 
-    // First, Save Data in Firebase Firestore
     try {
       await addDoc(collection(db, "contacts"), {
         name,
         email,
         message,
       });
-      toast.success("Message saved in Firebase!");
+      toast.success("Message saved!");
     } catch (error) {
-      toast.error("Error saving to Firebase!");
+      toast.error("Error saving message!");
       console.log(error);
     }
 
-    // Then, Submit Data to Formspree
     const formData = new FormData();
     formData.append("name", name);
     formData.append("email", email);
@@ -169,78 +45,132 @@ const Contact = () => {
         body: formData,
         headers: { Accept: "application/json" },
       });
-      toast.success("Message sent via Formspree!");
+      toast.success("Message sent successfully!");
       setName("");
       setEmail("");
       setMessage("");
     } catch (error) {
-      toast.error("Error sending to Formspree!");
+      toast.error("Error sending message!");
       console.log(error);
     }
 
     setDisableBtn(false);
   };
 
-  const animations = {
-    form: {
-      initial: { x: "-100%", opacity: 0 },
-      whileInView: { x: 0, opacity: 1 },
-    },
-    button: {
-      initial: { y: "-100%", opacity: 0 },
-      whileInView: { y: 0, opacity: 1 },
-      transition: { delay: 0.5 },
-    },
-  };
-
   return (
     <div id="contact">
-      <section>
-        <motion.form onSubmit={submitHandler} {...animations.form}>
-          <h2>Contact Me</h2>
+      <motion.div
+        className="sectionHeader"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+      >
+        <span className="sectionLabel">
+          <span className="line"></span>
+          GET IN TOUCH
+          <span className="line"></span>
+        </span>
+        <h2>Let's Work Together</h2>
+        <p className="sectionSubtext">Have a project in mind? Let's create something amazing together.</p>
+      </motion.div>
 
-          <input
-            type="text"
-            name="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            placeholder="Your Name"
-            required
-          />
-          <ValidationError prefix="Name" field="name" errors={state.errors} />
+      <div className="contactContent">
+        {/* Left - Info Cards */}
+        <motion.div
+          className="contactInfo"
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
+          <div className="infoCard">
+            <div className="infoIcon">
+              <BsEnvelope />
+            </div>
+            <div>
+              <h4>Email</h4>
+              <p>jahirmj2001@gmail.com</p>
+            </div>
+          </div>
 
-          <input
-            type="email"
-            name="email"
-            placeholder="Your Email"
-            required
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <ValidationError prefix="Email" field="email" errors={state.errors} />
+          <div className="infoCard">
+            <div className="infoIcon">
+              <BsGeoAlt />
+            </div>
+            <div>
+              <h4>Location</h4>
+              <p>India</p>
+            </div>
+          </div>
 
-          <textarea
-            name="message"
-            placeholder="Your Message"
-            required
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-          />
-          <ValidationError prefix="Message" field="message" errors={state.errors} />
+          <div className="connectSection">
+            <p>Connect with me</p>
+            <div className="socialIcons">
+              <a href="https://github.com/JahirMullick" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <AiFillGithub />
+              </a>
+              <a href="https://www.linkedin.com/in/md-jahir-mullick/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <AiFillLinkedin />
+              </a>
+              <a href="mailto:jahirmj2001@gmail.com" aria-label="Email">
+                <AiOutlineMail />
+              </a>
+            </div>
+          </div>
+        </motion.div>
 
-          <motion.button
-            disabled={disableBtn}
-            className={disableBtn ? "disableBtn" : ""}
-            {...animations.button}
-            type="submit"
-          >
-            Send
-          </motion.button>
-        </motion.form>
-      </section>
-      <aside>
-        <img src={vg} alt="Graphics" />
-      </aside>
+        {/* Right - Form Card */}
+        <motion.div
+          className="contactFormCard"
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          viewport={{ once: true }}
+        >
+          <h3>Send a Message</h3>
+          <p className="formSubtext">Fill out the form and I'll get back to you soon!</p>
+
+          <form onSubmit={submitHandler}>
+            <input
+              type="text"
+              name="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Your Name"
+              required
+            />
+            <ValidationError prefix="Name" field="name" errors={state.errors} />
+
+            <input
+              type="email"
+              name="email"
+              placeholder="Your Email"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <ValidationError prefix="Email" field="email" errors={state.errors} />
+
+            <textarea
+              name="message"
+              placeholder="Your Message"
+              required
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+            />
+            <ValidationError prefix="Message" field="message" errors={state.errors} />
+
+            <button
+              disabled={disableBtn}
+              className={disableBtn ? "disableBtn" : ""}
+              type="submit"
+            >
+              Send Message <BsSend />
+            </button>
+          </form>
+        </motion.div>
+      </div>
     </div>
   );
 };

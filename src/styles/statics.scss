@@ -1,18 +1,37 @@
-$text1: "Roboto", sans-serif;
-$text2: "Open Sans", sans-serif;
+// Modern Typography
+$text1: "Space Grotesk", sans-serif;
+$text2: "Inter", sans-serif;
 
-$color1: #fef2f2;
-$color2: #286f6c;
-$color2_1: #174340;
-$color3: #f26440;
-$color3_light: rgb(249, 141, 141);
-$color3_1: #ad4126;
-$color4: #fff;
-$color5: #292b46;
-$color6: #161616;
-$color6_1: #16161698;
-$color6_2: #16161622;
+// Dark Premium Color Palette
+$bg-primary: #0a0a0f;
+$bg-secondary: #12121a;
+$bg-card: #1a1a2e;
+$bg-glass: rgba(255, 255, 255, 0.04);
+$bg-glass-hover: rgba(255, 255, 255, 0.08);
 
+// Accent Colors - Vibrant Gradient
+$accent-primary: #6c63ff;
+$accent-secondary: #f857a6;
+$accent-tertiary: #00d2ff;
+$accent-gradient: linear-gradient(135deg, $accent-primary, $accent-secondary);
+$accent-gradient-subtle: linear-gradient(135deg, rgba(108, 99, 255, 0.15), rgba(248, 87, 166, 0.15));
+
+// Text
+$text-primary: #ffffff;
+$text-secondary: rgba(255, 255, 255, 0.7);
+$text-muted: rgba(255, 255, 255, 0.4);
+
+// Borders
+$border-subtle: rgba(255, 255, 255, 0.06);
+$border-light: rgba(255, 255, 255, 0.1);
+$border-accent: rgba(108, 99, 255, 0.3);
+
+// Shadows
+$shadow-glow: 0 0 40px rgba(108, 99, 255, 0.15);
+$shadow-card: 0 8px 32px rgba(0, 0, 0, 0.4);
+$shadow-elevated: 0 20px 60px rgba(0, 0, 0, 0.5);
+
+// Spacing
 $p: 13.33vmax;
 $p_md: 7vmax;
 $p_base: 5vmax;
@@ -20,3 +39,27 @@ $p_base_inverse: 15vmax 10vmax;
 $p_sm: 2vmax;
 $p_sm_inverse: 13vmax 0;
 $p_zero: 0;
+
+// Border Radius
+$radius-sm: 8px;
+$radius-md: 12px;
+$radius-lg: 16px;
+$radius-xl: 24px;
+$radius-full: 9999px;
+
+// Transitions
+$transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+$transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+$transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+// Legacy color aliases (for backward compat)
+$color1: $bg-primary;
+$color2: $accent-primary;
+$color3: $accent-primary;
+$color3_1: darken($accent-primary, 10%);
+$color3_light: lighten($accent-primary, 20%);
+$color4: $text-primary;
+$color5: $bg-secondary;
+$color6: $bg-card;
+$color6_1: $border-light;
+$color6_2: $border-subtle;

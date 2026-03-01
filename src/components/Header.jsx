@@ -1,5 +1,5 @@
 import React from "react";
-import { AiOutlineMenu } from "react-icons/ai";
+import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 
 const Header = ({ setMenuOpen, menuOpen }) => {
   return (
@@ -8,8 +8,8 @@ const Header = ({ setMenuOpen, menuOpen }) => {
         <NavContent setMenuOpen={setMenuOpen} />
       </nav>
 
-      <button className="navBtn" onClick={() => setMenuOpen(!menuOpen)}>
-        <AiOutlineMenu />
+      <button className="navBtn" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu">
+        {menuOpen ? <AiOutlineClose /> : <AiOutlineMenu />}
       </button>
     </>
   );
@@ -39,15 +39,12 @@ const NavContent = ({ setMenuOpen }) => (
       <a onClick={() => setMenuOpen(false)} href="#services">
         Services
       </a>
-      {/* <a onClick={() => setMenuOpen(false)} href="#testimonial">
-        Testimonial
-      </a> */}
       <a onClick={() => setMenuOpen(false)} href="#contact">
         Contact
       </a>
     </div>
     <a href="mailto:jahirmj2001@gmail.com">
-      <button>Email</button>
+      <button>Let's Talk</button>
     </a>
   </>
 );

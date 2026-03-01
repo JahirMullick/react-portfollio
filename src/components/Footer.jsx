@@ -1,36 +1,28 @@
 import React from "react";
-import {
-  AiFillGithub,
-  AiFillLinkedin,
-  AiOutlineArrowUp,
-} from "react-icons/ai";
+import { AiOutlineArrowUp } from "react-icons/ai";
 
 const Footer = () => {
   return (
     <footer>
-      <div>
-
-        <h2>MD Jahir Mullick</h2>
-        <p>Motivation is temporary, but discipline last forever.</p>
-        <h4> Copyright &copy; 2025 Jahir | All Rights Reserve</h4>
+      <div className="footerContent">
+        <div className="footerLeft">
+          <h2>Jahir Mullick</h2>
+          <p>Building exceptional web experiences.</p>
+        </div>
+        <div className="footerRight">
+          <a href="#home">Home</a>
+          <a href="#work">Work</a>
+          <a href="#timeline">Experience</a>
+          <a href="#services">Skills</a>
+          <a href="#contact">Contact</a>
+        </div>
       </div>
-
-      <aside>
-        <h4>Social Media</h4>
-
-        <article>
-
-          <a href="https://www.linkedin.com/in/md-jahir-mullick/" target={"blank"}>
-            <AiFillLinkedin />
-          </a>
-          <a href="https://github.com/JahirMullick" target={"blank"}>
-            <AiFillGithub />
-          </a>
-        </article>
-      </aside>
-      <a href="#home">
-        <AiOutlineArrowUp />
-      </a>
+      <div className="footerBottom">
+        <p>&copy; 2025 Jahir Mullick. All rights reserved.</p>
+        <a href="#home" className="scrollTop" aria-label="Scroll to top">
+          <AiOutlineArrowUp />
+        </a>
+      </div>
     </footer>
   );
 };

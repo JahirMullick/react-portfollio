@@ -1,53 +1,70 @@
 #testimonial {
   width: 100%;
-  padding: $p;
-  background-color: $color4;
-  color: $color5;
+  padding: 6rem 6%;
+  background-color: $bg-primary;
+  color: $text-primary;
 
-  > h2 {
-    font: 700 2.5rem $text2;
+  >h2 {
+    font: 700 2.5rem $text1;
     text-align: center;
     margin-bottom: 3rem;
+    background: $accent-gradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
-  > section {
+  >section {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    width: 80%;
+    justify-content: center;
+    gap: 1.5rem;
+    width: 90%;
     margin: auto;
-    height: 40rem;
-    padding: 8rem;
-    background-color: $color1;
-    gap: 20px;
+    padding: 3rem;
 
-    > article {
-      height: 100%;
+    >article {
       width: 30%;
-      background-color: $color4;
+      min-height: 300px;
+      background: $bg-glass;
+      backdrop-filter: blur(10px);
+      border: 1px solid $border-subtle;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 2rem;
+      padding: 3rem 2rem;
+      border-radius: $radius-lg;
       position: relative;
+      transition: $transition-smooth;
+
+      &:hover {
+        border-color: $border-accent;
+        transform: translateY(-4px);
+        box-shadow: $shadow-glow;
+      }
+
       img {
-        top: 0%;
-        position: absolute;
-        width: 100px;
-        height: 100px;
+        width: 80px;
+        height: 80px;
         object-fit: contain;
         border-radius: 50%;
-        transform: translateY(-50%);
+        border: 2px solid $border-accent;
+        margin-bottom: 1.5rem;
+      }
+
+      h4 {
+        font: 700 1rem $text1;
+        color: $text-primary;
+        margin-bottom: 0.5rem;
       }
 
       p {
-        letter-spacing: 2px;
-        margin: 20px 0;
-        font-size: 0.9rem;
-        line-height: 160%;
+        letter-spacing: 0.5px;
+        font-size: 0.85rem;
+        line-height: 170%;
         text-align: center;
-        overflow: hidden;
+        color: $text-secondary;
       }
     }
   }

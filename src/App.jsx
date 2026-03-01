@@ -26,7 +26,7 @@ function App() {
   }, [ratio]);
 
   useEffect(() => {
-    document.title = "Jahir's Portfollio"
+    document.title = "Jahir Mullick — Developer & Designer"
   })
 
   return (

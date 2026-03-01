@@ -1,57 +1,109 @@
 footer {
-  min-height: 100px;
-  background-color: $color6;
-  color: $color4;
-  padding: 6rem 0;
-  padding-left: $p;
-  display: grid;
-  grid-template-columns: 10fr 3fr 1fr;
-  align-items: center;
-  justify-items: center;
-  text-align: center;
-  > div {
-    width: 100%;
-    border-left: 2px solid $color4;
-    border-right: 2px solid $color4;
-    > img {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      object-fit: contain;
+  background: $bg-secondary;
+  color: $text-primary;
+  padding: 0;
+  border-top: 1px solid $border-subtle;
+
+  .footerContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3rem 6%;
+  }
+
+  .footerLeft {
+    h2 {
+      font: 700 1.5rem $text1;
+      background: $accent-gradient;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.5rem;
     }
 
-    > h2 {
-      margin: 1rem;
-    }
-    > p {
-      font: 400 1.2rem $text2;
+    p {
+      font: 400 0.9rem $text2;
+      color: $text-muted;
     }
   }
 
-  > aside > article {
-    margin-top: 1rem;
+  // ===== FOOTER NAV LINKS - Underline from center on hover =====
+  .footerRight {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    svg {
-      font-size: 2rem;
-      color: $color4;
+    gap: 2rem;
+
+    a {
+      font: 500 0.9rem $text2;
+      color: $text-secondary;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      letter-spacing: 0.3px;
+      position: relative;
+      padding-bottom: 4px;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0%;
+        height: 2px;
+        background: $accent-gradient;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        transform: translateX(-50%);
+      }
+
       &:hover {
-        color: $color3;
+        color: $accent-primary;
+        text-shadow: 0 0 12px rgba(108, 99, 255, 0.3);
+
+        &::after {
+          width: 100%;
+        }
       }
     }
   }
 
-  > a {
-    width: 50px;
-    height: 50px;
-    background-color: $color4;
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-    svg {
-      font-size: 2rem;
-      color: $color3;
+  .footerBottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 6%;
+    border-top: 1px solid $border-subtle;
+
+    p {
+      font: 400 0.8rem $text2;
+      color: $text-muted;
+    }
+
+    // ===== SCROLL TO TOP - Scale + glow + gradient fill on hover =====
+    .scrollTop {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      background: $bg-glass;
+      border: 1px solid $border-subtle;
+      border-radius: 50%;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+      svg {
+        font-size: 1.1rem;
+        color: $accent-primary;
+        transition: all 0.3s ease;
+      }
+
+      &:hover {
+        background: $accent-gradient;
+        border-color: transparent;
+        transform: translateY(-5px) scale(1.15);
+        box-shadow: 0 0 20px rgba(108, 99, 255, 0.4),
+          0 8px 25px rgba(0, 0, 0, 0.3);
+
+        svg {
+          color: $text-primary;
+          transform: translateY(-2px);
+        }
+      }
     }
   }
 }
