@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { animate, motion } from "framer-motion";
 import Typewriter from "typewriter-effect";
-import { BsArrowRight, BsChevronDown, BsSend } from "react-icons/bs";
+import { BsArrowRight, BsSend } from "react-icons/bs";
 import { FaReact, FaNodeJs, FaCode } from "react-icons/fa";
 import me from "../assets/pic3.png";
 
@@ -9,7 +9,7 @@ const Home = ({ ratio }) => {
   const projectCount = useRef(null);
 
   const animationProjectsCount = () => {
-    animate(0, 10, {
+    animate(0, 5, {
       duration: 1,
       onUpdate: (v) => (projectCount.current.textContent = v.toFixed()),
     });
@@ -51,7 +51,7 @@ const Home = ({ ratio }) => {
           <div className="typewriterWrap">
             <Typewriter
               options={{
-                strings: ["MERN Stack Developer", "React Specialist", "UI/UX Designer"],
+                strings: ["React Native Developer", "React Developer", "Full Stack Developer"],
                 autoStart: true,
                 loop: true,
                 cursor: "▌",
@@ -78,7 +78,7 @@ const Home = ({ ratio }) => {
           <motion.div className="ctaResume" variants={itemVariants}>
             <a
               target="_blank"
-              href="https://drive.google.com/file/d/1wwlAeBoUYRfaKNBydoru3YVMvAY8M1HH/view?usp=sharing"
+              href="https://drive.google.com/file/d/1-fmH99BFsk8ig082kpSXDrjCYSHUcnoE/view?usp=sharing"
             >
               📄 Download CV
             </a>
@@ -91,7 +91,7 @@ const Home = ({ ratio }) => {
                   whileInView={animationProjectsCount}
                   ref={projectCount}
                 >
-                  0
+                  5
                 </motion.span>+
               </p>
               <span>Projects</span>
@@ -126,10 +126,25 @@ const Home = ({ ratio }) => {
         </div>
       </section>
 
-      <div className="scrollIndicator">
-        <span>Scroll Down</span>
-        <BsChevronDown />
-      </div>
+      <motion.div
+        className="scrollIndicator"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1.5, duration: 0.8, ease: "easeOut" }}
+      >
+        <div className="scrollMouse">
+          <div className="scrollWheel"></div>
+        </div>
+        <div className="scrollLine">
+          <div className="scrollLineInner"></div>
+        </div>
+        <span className="scrollText">Scroll Down</span>
+        <div className="scrollDots">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </motion.div>
     </div>
   );
 };

@@ -38,12 +38,13 @@
   }
 }
 
-// ===== Green accent for project cards (matching reference) =====
-$project-accent: #10b981;
-$project-accent-dim: rgba(16, 185, 129, 0.25);
-$project-accent-glow: rgba(16, 185, 129, 0.15);
-$project-border: rgba(16, 185, 129, 0.2);
-$project-bg: rgba(10, 25, 30, 0.6);
+// ===== Purple/Pink accent for project cards (matching site theme) =====
+$project-accent: $accent-primary;
+$project-accent-secondary: $accent-secondary;
+$project-accent-dim: rgba(108, 99, 255, 0.25);
+$project-accent-glow: rgba(108, 99, 255, 0.15);
+$project-border: rgba(108, 99, 255, 0.15);
+$project-bg: rgba(18, 18, 30, 0.65);
 
 #work {
   width: 100%;
@@ -60,34 +61,65 @@ $project-bg: rgba(10, 25, 30, 0.6);
     margin: 0 auto;
   }
 
-  // ===== PROJECT CARD - Matches reference exactly =====
+  // ===== PROJECT CARD - Glassmorphic with purple/pink theme =====
   .projectCard {
     background: $project-bg;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
     border: 1px solid $project-border;
     border-radius: 16px;
     padding: 2rem 1.8rem 1.6rem;
     display: flex;
     flex-direction: column;
-    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: default;
     position: relative;
+    overflow: hidden;
 
-    // ===== HOVER: Green border glow + lift (exactly like reference) =====
+    // Subtle gradient shimmer on top edge
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg,
+          transparent,
+          rgba(108, 99, 255, 0.4),
+          rgba(248, 87, 166, 0.3),
+          transparent);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    // ===== HOVER: Purple/pink gradient glow + lift =====
     &:hover {
       border-color: $project-accent;
-      box-shadow: 0 0 20px $project-accent-glow,
-        0 0 40px rgba(16, 185, 129, 0.06),
+      box-shadow: 0 0 25px rgba(108, 99, 255, 0.2),
+        0 0 50px rgba(108, 99, 255, 0.06),
         0 8px 32px rgba(0, 0, 0, 0.4);
       transform: translateY(-8px);
+      background: rgba(108, 99, 255, 0.06);
 
-      .projectIconWrap img {
-        transform: scale(1.05);
+      &::before {
+        opacity: 1;
+      }
+
+      .projectIconWrap {
+        border-color: rgba(108, 99, 255, 0.3);
+        box-shadow: 0 0 20px rgba(108, 99, 255, 0.15);
+
+        img {
+          transform: scale(1.08);
+        }
       }
 
       .projectTitle {
-        color: #ffffff;
+        background: $accent-gradient;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
       }
     }
 
@@ -99,8 +131,9 @@ $project-bg: rgba(10, 25, 30, 0.6);
       border-radius: 14px;
       overflow: hidden;
       background: $bg-card;
-      border: 1px solid rgba(255, 255, 255, 0.06);
+      border: 1px solid $border-subtle;
       flex-shrink: 0;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
       img {
         width: 100%;
@@ -116,7 +149,7 @@ $project-bg: rgba(10, 25, 30, 0.6);
       font: 700 1.1rem $text1;
       color: $text-primary;
       margin-bottom: 0.5rem;
-      transition: color 0.3s ease;
+      transition: all 0.3s ease;
       letter-spacing: -0.3px;
     }
 
@@ -133,7 +166,7 @@ $project-bg: rgba(10, 25, 30, 0.6);
       overflow: hidden;
     }
 
-    // ===== GREEN TECH TAG PILLS (matching reference exactly) =====
+    // ===== PURPLE TECH TAG PILLS (matching site theme) =====
     .projectTags {
       display: flex;
       flex-wrap: wrap;
@@ -144,22 +177,23 @@ $project-bg: rgba(10, 25, 30, 0.6);
         display: inline-block;
         padding: 0.25rem 0.7rem;
         font: 500 0.7rem $text2;
-        color: $project-accent;
+        color: $accent-primary;
         border: 1px solid $project-accent-dim;
         border-radius: $radius-full;
         letter-spacing: 0.3px;
         transition: all 0.3s ease;
         cursor: default;
-        background: transparent;
+        background: rgba(108, 99, 255, 0.05);
 
         &:hover {
-          background: rgba(16, 185, 129, 0.1);
-          border-color: $project-accent;
+          background: rgba(108, 99, 255, 0.15);
+          border-color: $accent-primary;
+          color: lighten($accent-primary, 15%);
         }
       }
     }
 
-    // ===== PLATFORM / LINK BADGES (dark filled pills) =====
+    // ===== PLATFORM / LINK BADGES =====
     .projectLinks {
       margin-top: auto;
 
@@ -170,8 +204,8 @@ $project-bg: rgba(10, 25, 30, 0.6);
         padding: 0.35rem 0.85rem;
         font: 500 0.72rem $text2;
         color: $text-secondary;
-        background: rgba(255, 255, 255, 0.06);
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(108, 99, 255, 0.06);
+        border: 1px solid $border-accent;
         border-radius: $radius-full;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -181,9 +215,10 @@ $project-bg: rgba(10, 25, 30, 0.6);
         }
 
         &:hover {
-          color: $project-accent;
-          border-color: $project-accent-dim;
-          background: rgba(16, 185, 129, 0.06);
+          color: $text-primary;
+          border-color: $accent-primary;
+          background: rgba(108, 99, 255, 0.12);
+          box-shadow: 0 4px 15px rgba(108, 99, 255, 0.2);
 
           svg {
             transform: scale(1.15);

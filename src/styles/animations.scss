@@ -97,3 +97,62 @@
     border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
   }
 }
+
+// ===== Scroll Indicator Animations =====
+@keyframes scroll-wheel {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  50% {
+    opacity: 0.3;
+    transform: translateY(12px);
+  }
+}
+
+@keyframes scroll-line-flow {
+
+  0%,
+  100% {
+    transform: scaleY(0.3);
+    transform-origin: top;
+    opacity: 0.4;
+  }
+
+  50% {
+    transform: scaleY(1);
+    transform-origin: top;
+    opacity: 1;
+  }
+}
+
+@keyframes scroll-dot-pulse {
+
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.6);
+  }
+}
+
+@keyframes scroll-pulse-ring {
+
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.8;
+    transform: scale(1.08);
+  }
+}

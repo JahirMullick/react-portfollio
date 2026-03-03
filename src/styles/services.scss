@@ -19,15 +19,28 @@
     pointer-events: none;
   }
 
-  // ===== SKILLS GRID - Brand-colored border glow on hover =====
+  // ===== SKILLS GRID =====
   .skillsGrid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     gap: 1.2rem;
-    max-width: 900px;
+    max-width: 1100px;
     margin: 0 auto 4rem;
     position: relative;
     z-index: 1;
+
+    @media (max-width: 1024px) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @media (max-width: 640px) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.8rem;
+    }
+
+    @media (max-width: 420px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
   .skillCard {
@@ -35,47 +48,107 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 1.8rem 1.2rem;
-    background: $bg-glass;
-    backdrop-filter: blur(10px);
-    border: 1px solid $border-subtle;
+    padding: 2rem 1rem;
+    background: rgba(10, 15, 28, 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(40, 200, 180, 0.12);
     border-radius: $radius-lg;
     cursor: default;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    gap: 0.8rem;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+      border-color 0.35s ease,
+      box-shadow 0.35s ease;
+    gap: 0.9rem;
     position: relative;
+    overflow: hidden;
 
-    // ===== THE KEY EFFECT: Brand-colored border glow =====
+    // Bottom-to-top gradient overlay (hidden by default)
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: linear-gradient(to top,
+          var(--skill-glow, rgba(108, 99, 255, 0.2)) 0%,
+          transparent 70%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    // Radial glow behind the icon area (disabled)
+    // &::after {
+    //   content: "";
+    //   position: absolute;
+    //   top: 35%;
+    //   left: 50%;
+    //   width: 90px;
+    //   height: 90px;
+    //   transform: translate(-50%, -50%);
+    //   border-radius: 50%;
+    //   background: radial-gradient(circle, var(--skill-glow, rgba(108, 99, 255, 0.25)) 0%, transparent 70%);
+    //   opacity: 0;
+    //   transition: opacity 0.4s ease;
+    //   pointer-events: none;
+    //   z-index: 0;
+    // }
+
+    // ===== HOVER: Brand-colored gradient + border glow + scale =====
     &:hover {
       border-color: var(--skill-color, $accent-primary);
-      box-shadow: 0 0 25px var(--skill-glow, rgba(108, 99, 255, 0.3)),
-        0 0 50px var(--skill-glow, rgba(108, 99, 255, 0.1));
-      transform: translateY(-6px);
-      background: rgba(255, 255, 255, 0.06);
+      box-shadow: 0 0 20px var(--skill-glow, rgba(108, 99, 255, 0.25)),
+        0 0 40px var(--skill-glow, rgba(108, 99, 255, 0.1)),
+        0 4px 20px rgba(0, 0, 0, 0.4);
+      transform: scale(1.05);
+
+      &::before {
+        opacity: 1;
+      }
+
+      // &::after {
+      //   opacity: 1;
+      // }
 
       .skillIcon {
-        transform: scale(1.15);
+        transform: scale(1.12);
+        // filter: drop-shadow(0 0 8px var(--skill-glow, rgba(108, 99, 255, 0.4)));
       }
 
       .skillName {
-        color: $text-primary;
+        color: var(--skill-color, $accent-primary);
       }
     }
 
     .skillIcon {
-      font-size: 2.2rem;
-      color: var(--skill-color, $accent-primary);
+      width: 42px;
+      height: 42px;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+        filter 0.35s ease;
+      position: relative;
+      z-index: 1;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      .invertIcon {
+        filter: brightness(0) invert(1);
+      }
     }
 
     .skillName {
-      font: 500 0.85rem $text2;
+      font: 500 0.82rem $text2;
       color: $text-secondary;
       letter-spacing: 0.5px;
-      transition: color 0.3s ease;
+      text-align: center;
+      transition: color 0.35s ease;
+      position: relative;
+      z-index: 1;
     }
   }
 
