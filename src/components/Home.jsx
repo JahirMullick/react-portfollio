@@ -97,7 +97,7 @@ const Home = ({ ratio }) => {
               <span>Projects</span>
             </article>
             <article>
-              <p>2+</p>
+              <p>3</p>
               <span>Years Exp.</span>
             </article>
             <article>
